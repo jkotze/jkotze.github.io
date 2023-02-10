@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <body>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- static_form_to_google_sheet.js -->
+    <form data-gf-url="https://docs.google.com/forms/d/1B9AXWM4Xz2bn_DVLHCQ-20z3Ir1xCKKC-KbMtpTzGyg/formResponse?entry.1131348717=first_name&entry.454204203=last_name&submit=SUBMIT
+    ">
+    <div>
+        <label for="first_name"> First Name </label>
+        <input type="text" name="first_name"/>
+    </div>
+
+    <div>
+        <label for="last_name"> Last Name </label>
+        <input type="text" name="last_name"/>
+    </div>
+    <input type = "submit"/>
+    </form>
+        <script type="text/javascript">
+        window.addEventListener("load", function () {
+        const form = document.querySelector("form");
+        
+        form.addEventListener("submit", function ( event ) {
+            event.preventDefault();
+            sendData();
+        } );
+            
+        function sendData() {
+            const FD = new FormData(form);
+
+            let url = form.dataset.gfUrl;
+            for(let [key, value] of FD) {
+            url = url.replace(key, value);
+            }
+
+            let opts = {
+                method: "POST",
+                mode: "no-cors",
+                redirect: "follow", 
+                referrer: "no-referrer"
+            }
+
+            return fetch(url, opts).then(alert('Success')).catch((e) => {alert('Error:', e);});
+        }
+        } );
+        </script>
+    </body>  
+</html>
