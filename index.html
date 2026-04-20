@@ -394,14 +394,25 @@
     const tag = document.getElementById('tag');
     const emailLink = document.getElementById('email-link');
 
-    function setMode(mode) {
+    let currentMode = 'personal';
+    const validModes = ['personal', 'business'];
+
+    function setMode(mode, updateHash = true) {
+      if (!validModes.includes(mode)) mode = 'personal';
+      currentMode = mode;
       tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.mode === mode ? 'true' : 'false'));
       sections.forEach(s => s.classList.toggle('active', s.dataset.section === mode));
       tag.textContent = taglines[mode];
       emailLink.href = 'mailto:' + emails[mode];
       card.classList.toggle('mode-business', mode === 'business');
+      if (updateHash && location.hash !== '#' + mode) {
+        history.replaceState(null, '', '#' + mode);
+      }
     }
+
     tabs.forEach(t => t.addEventListener('click', () => setMode(t.dataset.mode)));
+    window.addEventListener('hashchange', () => setMode(location.hash.slice(1), false));
+    setMode(location.hash.slice(1), false);
 
     document.getElementById('save-contact').addEventListener('click', () => {
       const lines = [
@@ -439,7 +450,7 @@
       }
       try {
         const qr = qrcode(0, 'M');
-        qr.addData(SITE_URL);
+        qr.addData(SITE_URL + '#' + currentMode);
         qr.make();
         qrCanvas.innerHTML = qr.createSvgTag({ cellSize: 6, margin: 2, scalable: true });
         const svg = qrCanvas.querySelector('svg');
