@@ -1,0 +1,23 @@
+index.html
+  2dc8b9a09455b651 455
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.0",
+  "base_commit_sha": "321fd89ca70ddcf3547760a041fb8df5c87c118c",
+  "prompts": {
+    "2dc8b9a09455b651": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "46ee2526-a66e-4946-a093-ef2a8e913072",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "jkotze",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 3,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
