@@ -16,6 +16,7 @@
   <link rel="icon" href="https://github.com/jkotze.png" />
   <style>
     :root {
+      color-scheme: light;
       --bg: #F4F2EB;
       --surface: #FFFFFF;
       --ink: #000000;
@@ -430,15 +431,15 @@
       ];
       if (TEL) lines.push('TEL;TYPE=CELL:' + TEL);
       lines.push('END:VCARD');
-      const blob = new Blob([lines.join('\r\n')], { type: 'text/vcard' });
-      const url = URL.createObjectURL(blob);
+      const vcard = lines.join('\r\n');
+      const dataUrl = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
       const a = document.createElement('a');
-      a.href = url;
+      a.href = dataUrl;
       a.download = 'jacques-kotze.vcf';
+      a.rel = 'noopener';
       document.body.appendChild(a);
       a.click();
       a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
     });
 
     const qrBackdrop = document.getElementById('qr-backdrop');
