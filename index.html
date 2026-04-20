@@ -4,26 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Jacques Kotze — links, contact, and Arclio." />
-  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="theme-color" content="#F4F2EB" />
   <meta property="og:title" content="Jacques Kotze" />
   <meta property="og:description" content="Links, contact, and Arclio." />
   <meta property="og:image" content="https://github.com/jkotze.png" />
   <meta property="og:type" content="website" />
   <title>Jacques Kotze</title>
   <link rel="preconnect" href="https://github.com" crossorigin />
-  <link rel="preconnect" href="https://framerusercontent.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
+  <link href="https://fonts.cdnfonts.com/css/open-sauce-sans" rel="stylesheet" />
   <link rel="icon" href="https://github.com/jkotze.png" />
   <style>
     :root {
-      --fg: rgba(255, 255, 255, 0.96);
-      --fg-dim: rgba(255, 255, 255, 0.62);
-      --glass: rgba(255, 255, 255, 0.05);
-      --glass-hi: rgba(255, 255, 255, 0.09);
-      --border: rgba(255, 255, 255, 0.1);
-      --border-hi: rgba(167, 139, 250, 0.35);
-      --accent: #a78bfa;
-      --accent-2: #60a5fa;
+      --bg: #F4F2EB;
+      --surface: #FFFFFF;
+      --ink: #000000;
+      --muted: #737373;
+      --line: rgba(0, 0, 0, 0.1);
+      --line-hi: rgba(0, 0, 0, 0.22);
+      --accent: #B4E833;
+      --accent-ink: #000000;
       --radius: 14px;
+      --font-display: "Open Sauce Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-body: "Helvetica Neue", Helvetica, "Open Sauce Sans", Arial, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,9 +34,9 @@
     html, body { min-height: 100vh; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-      color: var(--fg);
-      background: #0a0a0f;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -43,9 +46,8 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 15% 0%, rgba(167, 139, 250, 0.28), transparent 55%),
-        radial-gradient(ellipse 70% 55% at 85% 100%, rgba(96, 165, 250, 0.22), transparent 60%),
-        radial-gradient(ellipse 50% 40% at 50% 50%, rgba(236, 72, 153, 0.08), transparent 70%);
+        radial-gradient(ellipse 60% 50% at 85% 0%, rgba(180, 232, 51, 0.18), transparent 60%),
+        radial-gradient(ellipse 55% 45% at 10% 100%, rgba(180, 232, 51, 0.08), transparent 65%);
       z-index: -1;
       pointer-events: none;
     }
@@ -57,13 +59,11 @@
     }
 
     .card {
-      background: var(--glass);
-      border: 1px solid var(--border);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: 24px;
       padding: 32px 24px 28px;
-      -webkit-backdrop-filter: blur(24px) saturate(140%);
-      backdrop-filter: blur(24px) saturate(140%);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
     }
 
     .hero { text-align: center; }
@@ -74,19 +74,21 @@
       border-radius: 50%;
       display: block;
       margin: 0 auto 18px;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.4), 0 0 0 6px rgba(167, 139, 250, 0.08);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 0 6px rgba(180, 232, 51, 0.28);
     }
 
     h1 {
-      font-size: 26px;
-      font-weight: 600;
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 6px;
+      text-transform: uppercase;
     }
 
     .tag {
-      color: var(--fg-dim);
+      color: var(--muted);
       font-size: 14.5px;
       line-height: 1.5;
       max-width: 360px;
@@ -99,20 +101,20 @@
       gap: 6px;
       margin: 10px auto 0;
       padding: 4px 10px 4px 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border);
+      background: var(--bg);
+      border: 1px solid var(--line);
       border-radius: 999px;
       font-size: 12px;
-      color: var(--fg-dim);
+      color: var(--muted);
       width: fit-content;
     }
-    .brand-chip img { width: 16px; height: 16px; border-radius: 4px; }
+    .brand-chip img { width: 26px; height: 26px; margin: -5px -5px -5px -5px; }
     .mode-business .brand-chip { display: inline-flex; }
 
     .tabs {
       display: flex;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border);
+      background: var(--bg);
+      border: 1px solid var(--line);
       border-radius: 12px;
       padding: 4px;
       margin: 26px 0 18px;
@@ -121,19 +123,20 @@
       flex: 1;
       padding: 9px 12px;
       font-size: 13.5px;
-      font-weight: 500;
-      color: var(--fg-dim);
+      font-weight: 600;
+      color: var(--muted);
       background: none;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-family: inherit;
+      letter-spacing: 0.02em;
       transition: color 0.2s, background 0.2s;
     }
     .tab[aria-selected="true"] {
-      color: var(--fg);
-      background: var(--glass-hi);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      color: var(--ink);
+      background: var(--surface);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     .section { display: none; }
@@ -146,37 +149,46 @@
       align-items: center;
       gap: 12px;
       padding: 14px 16px;
-      background: var(--glass);
-      border: 1px solid var(--border);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      color: var(--fg);
+      color: var(--ink);
       text-decoration: none;
       font-size: 15px;
       font-weight: 500;
       transition: background 0.15s, transform 0.15s, border-color 0.15s;
     }
     .link:hover {
-      background: var(--glass-hi);
-      border-color: var(--border-hi);
+      background: var(--bg);
+      border-color: var(--line-hi);
       transform: translateY(-1px);
     }
     .link .ico { width: 20px; height: 20px; flex-shrink: 0; }
     .link .ico.rounded { border-radius: 4px; }
+    .link .ico-arclio {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      margin: -7px -7px -7px -7px;
+    }
     .link .label { flex: 1; }
-    .link .arrow { opacity: 0.35; transition: opacity 0.15s, transform 0.15s; }
+    .link .arrow { opacity: 0.45; transition: opacity 0.15s, transform 0.15s; }
     .link:hover .arrow { opacity: 1; transform: translateX(2px); }
 
     .link.primary {
-      background: linear-gradient(135deg, rgba(167, 139, 250, 0.22), rgba(96, 165, 250, 0.22));
-      border-color: rgba(167, 139, 250, 0.4);
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-ink);
     }
     .link.primary:hover {
-      background: linear-gradient(135deg, rgba(167, 139, 250, 0.32), rgba(96, 165, 250, 0.32));
+      background: #a6db26;
+      border-color: #a6db26;
     }
+    .link.primary .arrow { opacity: 0.6; }
 
     .divider {
       height: 1px;
-      background: var(--border);
+      background: var(--line);
       margin: 22px 0 18px;
     }
 
@@ -191,10 +203,10 @@
       justify-content: center;
       gap: 8px;
       padding: 12px;
-      background: var(--glass);
-      border: 1px solid var(--border);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      color: var(--fg);
+      color: var(--ink);
       font-size: 13px;
       font-weight: 500;
       text-decoration: none;
@@ -203,23 +215,24 @@
       transition: background 0.15s, border-color 0.15s;
     }
     .contact button:hover, .contact a:hover {
-      background: var(--glass-hi);
-      border-color: var(--border-hi);
+      background: var(--bg);
+      border-color: var(--line-hi);
     }
     .contact .ico { width: 16px; height: 16px; }
 
     .foot {
       text-align: center;
       font-size: 11.5px;
-      color: var(--fg-dim);
+      color: var(--muted);
       margin-top: 24px;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .qr-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.55);
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       display: none;
@@ -233,42 +246,50 @@
     .qr-backdrop.show { display: flex; opacity: 1; }
 
     .qr-dialog {
-      background: #141420;
-      border: 1px solid var(--border);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: 20px;
       padding: 28px 24px;
       max-width: 300px;
       width: 100%;
       text-align: center;
+      color: var(--ink);
     }
-    .qr-dialog h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-    .qr-dialog p { font-size: 12.5px; color: var(--fg-dim); margin-bottom: 18px; }
+    .qr-dialog h3 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .qr-dialog p { font-size: 12.5px; color: var(--muted); margin-bottom: 18px; }
     .qr-canvas {
       background: #fff;
       padding: 14px;
       border-radius: 12px;
       display: inline-block;
       line-height: 0;
+      border: 1px solid var(--line);
     }
     .qr-canvas img, .qr-canvas svg { display: block; width: 200px; height: 200px; }
     .qr-close {
       margin-top: 18px;
       width: 100%;
       padding: 10px;
-      background: var(--glass);
-      border: 1px solid var(--border);
-      color: var(--fg);
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      color: var(--accent-ink);
       border-radius: 10px;
       cursor: pointer;
       font-family: inherit;
+      font-weight: 600;
       font-size: 13.5px;
     }
-    .qr-close:hover { background: var(--glass-hi); }
+    .qr-close:hover { background: #a6db26; border-color: #a6db26; }
 
     @media (max-width: 380px) {
       main { padding: 28px 14px 40px; }
       .card { padding: 26px 18px 22px; }
-      h1 { font-size: 23px; }
+      h1 { font-size: 26px; }
       .avatar { width: 96px; height: 96px; }
     }
 
@@ -283,9 +304,9 @@
       <div class="hero">
         <img class="avatar" src="https://github.com/jkotze.png" alt="Jacques Kotze" width="108" height="108" />
         <h1>Jacques Kotze</h1>
-        <p class="tag" id="tag">Builder, operator, product person.</p>
+        <p class="tag" id="tag">Operator and builder. A decade across startups, data, and AI.</p>
         <span class="brand-chip" aria-hidden="true">
-          <img src="https://framerusercontent.com/images/eDobkXabuBEi37FPsHTAtxcNqvM.png" alt="" />
+          <img src="arclio-logo.png" alt="" />
           <span>at Arclio</span>
         </span>
       </div>
@@ -323,7 +344,7 @@
       <div class="section" data-section="business">
         <div class="links">
           <a class="link primary" href="https://www.arclio.ai" target="_blank" rel="noopener">
-            <img class="ico rounded" src="https://framerusercontent.com/images/eDobkXabuBEi37FPsHTAtxcNqvM.png" alt="" />
+            <img class="ico ico-arclio" src="arclio-logo.png" alt="" />
             <span class="label">Visit Arclio</span>
             <span class="arrow">→</span>
           </a>
